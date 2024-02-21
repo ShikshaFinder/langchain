@@ -1,5 +1,5 @@
 "use client";
-
+import LangChainProvider from "@/components/Langchain";
 import * as React from "react";
 import { NextUIProvider } from "@nextui-org/system";
 import { useRouter } from 'next/navigation'
@@ -16,7 +16,10 @@ export function Providers({ children, themeProps }: ProvidersProps) {
 
 	return (
 		<NextUIProvider navigate={router.push}>
+			    <LangChainProvider apiKey={openAIKey}>
+
 			<NextThemesProvider {...themeProps}>{children}</NextThemesProvider>
+			</LangChainProvider>
 		</NextUIProvider>
 	);
 }
